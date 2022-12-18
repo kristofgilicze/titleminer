@@ -1,28 +1,27 @@
-# What is titleminer?
+# Mi az a titleminer?
 
-titleminer is a tool for extracting titles from a set of news pages.
-It is a command line tool that takes a list of URLs as input and outputs a list of titles.
-It is written in Python and uses the [Beautiful Soup](http://www.crummy.com/software/BeautifulSoup/) library for parsing HTML.
+A titleminer egy eszköz a címek kinyerésére híroldalakról.
+Ez egy parancssori eszköz, amely az URL-ek listáját veszi be bemenetként, és egy címlistát ad ki.
+Python nyelven íródott, és a [Beautiful Soup](http://www.crummy.com/software/BeautifulSoup/) könyvtárat használja a HTML elemzéséhez.
 
-# Installation
+# Telepítés
 
-titleminer requires Python 3.10 and poetry.
+A titleminerhez Python 3.10 és poetry szükséges.
 
-To install titleminer, run the following commands:
+A titleminer telepítéséhez futtassa a következő parancsokat:
 
-    poetry install
+     poetry install
 
-# Usage
+# Használat
 
-titleminer takes a list of URLs in a text file and outputs the most common words in the titles of the web pages to the console.
+A titleminer felveszi az URL-ek listáját egy szöveges fájlban, és kiírja a konzolba a weboldalak címében található leggyakoribb szavakat.
     
-        poetry run titleminer feeds.txt
+    poetry run titleminer feeds.txt
 
-It is possible to generate wordcloud with --wordcloud option.
+Lehetőség van wordcloud létrehozására a --wordcloud opcióval.
 
-        poetry run titleminer feeds.txt --wordcloud
+    poetry run titleminer feeds.txt --wordcloud
 
-See the help for more options:
+További lehetőségekért tekintse meg a súgót:
 
-        poetry run titleminer --help
-
+     poetry run titleminer --help
