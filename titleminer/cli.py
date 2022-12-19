@@ -153,4 +153,4 @@ def sentiment(rss_feeds, openai_key: str, limit: int):
         click.secho(f"Neutral titles: {len(mediums[medium].neutral_titles)}", fg="yellow")
         click.secho(f"Negative titles: {len(mediums[medium].negative_titles)}", fg="red")
 
-    senitment_to_csv(mediums, "senitment.csv")
+    senitment_to_csv(mediums, "sentiment.csv")
