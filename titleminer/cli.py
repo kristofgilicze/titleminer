@@ -100,7 +100,7 @@ def wordcloud(
 
 @root.command()
 @click.argument("rss_feeds", type=click.types.File("r"), default="feeds.txt")
-@click.option("--openai-key", default="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", help="OpenAI API key")
+@click.option("--openai-key", required=True, help="OpenAI API key")
 @click.option("--limit", default=2, help="Limit number of titles to process")
 @click.version_option(version=__version__)
 def sentiment(rss_feeds, openai_key: str, limit: int):
