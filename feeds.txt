@@ -2,3 +2,6 @@ https://telex.hu/rss
 https://444.hu/feed
 https://www.origo.hu/contentpartner/rss/origoall/origo.xml
 https://index.hu/24ora/rss/
+http://feeds.bbci.co.uk/news/rss.xml
+http://blikk.hu/static/rss_hirek.xml
+https://www.theguardian.com/world/rss

@@ -1,4 +1,12 @@
 [[package]]
+name = "altgraph"
+version = "0.17.3"
+description = "Python graph (network) package"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "beautiful"
 version = "0.0.2"
 description = "A collection of functions and classes to aid developers into building better code faster"
@@ -107,6 +115,14 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "et-xmlfile"
+version = "1.1.0"
+description = "An implementation of lxml.xmlfile for the standard library"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "fonttools"
 version = "4.38.0"
 description = "Tools to manipulate font files"
@@ -127,6 +143,14 @@ type1 = ["xattr"]
 ufo = ["fs (>=2.2.0,<3)"]
 unicode = ["unicodedata2 (>=14.0.0)"]
 woff = ["zopfli (>=0.1.4)", "brotlicffi (>=0.8.0)", "brotli (>=1.0.1)"]
+
+[[package]]
+name = "future"
+version = "0.18.2"
+description = "Clean single-source support for Python 3 and 2"
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "idna"
@@ -157,6 +181,17 @@ cssselect = ["cssselect (>=0.7)"]
 html5 = ["html5lib"]
 htmlsoup = ["beautifulsoup4"]
 source = ["Cython (>=0.29.7)"]
+
+[[package]]
+name = "macholib"
+version = "1.16.2"
+description = "Mach-O header analysis and editing"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+altgraph = ">=0.17"
 
 [[package]]
 name = "matplotlib"
@@ -195,6 +230,39 @@ optional = false
 python-versions = ">=3.8"
 
 [[package]]
+name = "openai"
+version = "0.25.0"
+description = "Python client library for the OpenAI API"
+category = "main"
+optional = false
+python-versions = ">=3.7.1"
+
+[package.dependencies]
+numpy = "*"
+openpyxl = ">=3.0.7"
+pandas = ">=1.2.3"
+pandas-stubs = ">=1.1.0.11"
+requests = ">=2.20"
+tqdm = "*"
+typing_extensions = "*"
+
+[package.extras]
+dev = ["black (>=21.6b0,<22.0.0)", "pytest (>=6.0.0,<7.0.0)"]
+embeddings = ["scikit-learn (>=1.0.2)", "tenacity (>=8.0.1)", "matplotlib", "sklearn", "plotly"]
+wandb = ["wandb"]
+
+[[package]]
+name = "openpyxl"
+version = "3.0.10"
+description = "A Python library to read/write Excel 2010 xlsx/xlsm files"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+et-xmlfile = "*"
+
+[[package]]
 name = "packaging"
 version = "22.0"
 description = "Core utilities for Python packages"
@@ -203,12 +271,50 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "pandas"
+version = "1.5.2"
+description = "Powerful data structures for data analysis, time series, and statistics"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+numpy = {version = ">=1.21.0", markers = "python_version >= \"3.10\""}
+python-dateutil = ">=2.8.1"
+pytz = ">=2020.1"
+
+[package.extras]
+test = ["hypothesis (>=5.5.3)", "pytest (>=6.0)", "pytest-xdist (>=1.31)"]
+
+[[package]]
+name = "pandas-stubs"
+version = "1.5.2.221213"
+description = "Type annotations for pandas"
+category = "main"
+optional = false
+python-versions = ">=3.8,<3.12"
+
+[package.dependencies]
+types-pytz = ">=2022.1.1"
+
+[[package]]
 name = "pathspec"
 version = "0.10.3"
 description = "Utility library for gitignore style pattern matching of file paths."
 category = "dev"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "pefile"
+version = "2022.5.30"
+description = "Python PE parsing module"
+category = "main"
+optional = false
+python-versions = ">=3.6.0"
+
+[package.dependencies]
+future = "*"
 
 [[package]]
 name = "pillow"
@@ -235,6 +341,33 @@ docs = ["furo (>=2022.9.29)", "proselint (>=0.13)", "sphinx-autodoc-typehints (>
 test = ["appdirs (==1.4.4)", "pytest-cov (>=4)", "pytest-mock (>=3.10)", "pytest (>=7.2)"]
 
 [[package]]
+name = "pyinstaller"
+version = "5.7.0"
+description = "PyInstaller bundles a Python application and all its dependencies into a single package."
+category = "main"
+optional = false
+python-versions = "<3.12,>=3.7"
+
+[package.dependencies]
+altgraph = "*"
+macholib = {version = ">=1.8", markers = "sys_platform == \"darwin\""}
+pefile = {version = ">=2022.5.30", markers = "sys_platform == \"win32\""}
+pyinstaller-hooks-contrib = ">=2021.4"
+pywin32-ctypes = {version = ">=0.2.0", markers = "sys_platform == \"win32\""}
+
+[package.extras]
+encryption = ["tinyaes (>=1.0.0)"]
+hook_testing = ["pytest (>=2.7.3)", "execnet (>=1.5.0)", "psutil"]
+
+[[package]]
+name = "pyinstaller-hooks-contrib"
+version = "2022.14"
+description = "Community maintained hooks for PyInstaller"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "pyparsing"
 version = "3.0.9"
 description = "pyparsing module - Classes and methods to define and execute parsing grammars"
@@ -255,6 +388,22 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 
 [package.dependencies]
 six = ">=1.5"
+
+[[package]]
+name = "pytz"
+version = "2022.7"
+description = "World timezone definitions, modern and historical"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pywin32-ctypes"
+version = "0.2.0"
+description = ""
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "requests"
@@ -327,6 +476,31 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "tqdm"
+version = "4.64.1"
+description = "Fast, Extensible Progress Meter"
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[package.extras]
+dev = ["py-make (>=0.1.0)", "twine", "wheel"]
+notebook = ["ipywidgets (>=6)"]
+slack = ["slack-sdk"]
+telegram = ["requests"]
+
+[[package]]
+name = "types-pytz"
+version = "2022.6.0.1"
+description = "Typing stubs for pytz"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "typing-extensions"
 version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -363,9 +537,10 @@ pillow = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "3.10.*"
-content-hash = "d35d05911fefd1a29a36224fde962f8eef70b849687ebe48d06f83101ad14076"
+content-hash = "09ed28240301815e624eb31fcf819739dbe423349c368733fae3f5c63e9b8dfa"
 
 [metadata.files]
+altgraph = []
 beautiful = []
 beautifulsoup4 = []
 black = []
@@ -375,25 +550,39 @@ click = []
 colorama = []
 contourpy = []
 cycler = []
+et-xmlfile = []
 fonttools = []
+future = []
 idna = []
 kiwisolver = []
 lxml = []
+macholib = []
 matplotlib = []
 mypy-extensions = []
 numpy = []
+openai = []
+openpyxl = []
 packaging = []
+pandas = []
+pandas-stubs = []
 pathspec = []
+pefile = []
 pillow = []
 platformdirs = []
+pyinstaller = []
+pyinstaller-hooks-contrib = []
 pyparsing = []
 python-dateutil = []
+pytz = []
+pywin32-ctypes = []
 requests = []
 setuptools-scm = []
 six = []
 soupsieve = []
 tabulate = []
 tomli = []
+tqdm = []
+types-pytz = []
 typing-extensions = []
 urllib3 = []
 wordcloud = []
